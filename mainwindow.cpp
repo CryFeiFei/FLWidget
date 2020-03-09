@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 
 #ifdef Q_OS_WIN
-
+#include "flwidget.h"
 #else
 #include "flwidget_linux.h"
 #endif
@@ -30,7 +30,8 @@ MainWindow::~MainWindow()
 void MainWindow::showWinFLWidget()
 {
 #ifdef Q_OS_WIN
-
+	FLWidget* flWidget = new FLWidget(this);
+	flWidget->show();
 #endif
 }
 

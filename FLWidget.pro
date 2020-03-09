@@ -24,19 +24,25 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 CONFIG += c++11
 
+win32 {
+    SOURCES += \
+            flwidget.cpp
 
-linux*
-{
+    HEADERS += \
+            flwidget.h
+}
+
+unix:!macx {
     CONFIG += link_pkgconfig
     PKGCONFIG += xext
     QT += x11extras dbus
     LIBS += -lX11
 
     SOURCES += xutil.cpp \
-    flwidget_linux.cpp
+        flwidget_linux.cpp
 
     HEADERS += xutil.h \
-    flwidget_linux.h
+        flwidget_linux.h
 }
 
 SOURCES += \
